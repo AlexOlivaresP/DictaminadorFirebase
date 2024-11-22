@@ -1,103 +1,171 @@
+/* Fuentes */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
+/* Colores */
+:root {
+  --color-fondo: #4365A5; /* Azul marino */
+  --color-borde: #fcfcfc;
+  --color-texto: #3B4250;
+  --color-placeholder: #b5b5b5;
+  --color-boton: #fcba03;
+  --color-boton-hover: #d6a002;
+  --color-boton-texto: #ffffff;
+  --color-link: #fcba03;
+  --color-link-hover: #d6a002;
+  --color-form-fondo: #ffffff; /* Fondo blanco del formulario */
+}
+
 /* Estilos generales */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-	font-family: Arial, sans-serif;
-	font-size: 16px;
-	background-color: #F2F2F2;
-	color: #333;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Contenedor principal */
+.login-container {
+  background-color: var(--color-form-fondo);
+  border: 2px solid var(--color-borde);
+  border-radius: 1rem;
+  padding: 2rem;
+  max-width: 50rem;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Contenido del formulario y SVG */
+.login-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+/* Contenedor del SVG */
+.svg-container {
+  flex: 1; /* Espacio proporcional al formulario */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 2rem; /* Espacio adicional entre el SVG y el formulario */
+}
+
+.svg-container img {
+  max-width: 100%;
+  max-height: 30rem; /* Incrementar tamaño máximo */
+  width: 25rem; /* Tamaño fijo */
+  height: auto;
+  object-fit: contain; /* Mantener proporciones */
+}
+
+/* Contenedor del formulario */
+.form-container {
+  flex: 1.5; /* Menor espacio que el SVG */
+  text-align: center;
 }
 
 h2 {
-	text-align: center;
-	font-size: 36px;
-	margin: 30px 0;
-	color: #444;
+  font-weight: 600;
+  font-size: 2rem;
+  color: var(--color-texto);
+  margin-bottom: 1.5rem;
 }
 
 form {
-	max-width: 500px;
-	margin: 0 auto;
-	background-color: #fff;
-	padding: 40px;
-	box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-	border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centrar los elementos del formulario */
 }
 
 label {
-	display: block;
-	font-size: 18px;
-	margin-bottom: 10px;
-	color: #444;
+  font-size: 1.5rem; /* Tamaño grande para balancear el diseño */
+  margin-bottom: 0.5rem;
+  color: var(--color-texto);
 }
 
-input[type="text"],
-input[type="email"],
-input[type="password"] {
-	display: block;
-	width: 100%;
-	padding: 10px;
-	font-size: 16px;
-	border: none;
-	border-radius: 5px;
-	background-color: #F2F2F2;
-	margin-bottom: 20px;
-	box-shadow: inset 0px 0px 3px rgba(0, 0, 0, 0.1);
-	color: #333;
+input[type='email'],
+input[type='password'] {
+  background-color: transparent;
+  border: 2px solid #a7a7a7; /* Borde negro */
+  border-radius: 1rem; /* Bordes redondeados */
+  color: var(--color-texto);
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.25rem;
+  padding: 0.5rem;
+  margin-bottom: 1.5rem;
+  width: 80%; /* Reducir el ancho para que se vea compacto */
+  text-align: center; /* Centrar texto ingresado */
 }
 
-button[type="submit"] {
-	display: block;
-	margin: 20px auto 0;
-	padding: 10px 20px;
-	font-size: 20px;
-	color: #fff;
-	background-color: #FFC107;
-	border: none;
-	border-radius: 5px;
-	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
-	cursor: pointer;
+input[type='email']:focus,
+input[type='password']:focus {
+  outline: none; /* Eliminar el contorno del navegador */
+  border-color: var(--color-boton); /* Cambiar borde al color del botón en focus */
 }
 
-button[type="submit"]:hover {
-	background-color: #F57F17;
+input[type='email']::placeholder,
+input[type='password']::placeholder {
+  color: var(--color-placeholder);
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.25rem;
+  text-align: center; /* Centrar el texto del placeholder */
 }
 
-a {
-	color: #333;
+button[type='submit'] {
+  background-color: var(--color-boton);
+  border: none;
+  border-radius: 1rem;
+  color: var(--color-boton-texto);
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  transition: background-color 0.2s ease-in-out;
+  width: 80%; /* Botones del mismo ancho que los campos */
 }
 
-a:hover {
-	color: #444;
+button[type='submit']:hover {
+  background-color: var(--color-boton-hover);
 }
 
 p {
-	margin-top: 20px;
-	font-size: 18px;
-	text-align: center;
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: var(--color-texto);
+  text-align: center; /* Centrar texto del párrafo */
 }
 
-/* Estilos específicos del formulario de registro */
-#username:focus,
-#email:focus,
-#password:focus,
-#password_confirm:focus {
-	background-color: #fff;
-	box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
-}
+/* Responsividad para pantallas pequeñas */
+@media screen and (max-width: 600px) {
+  .login-content {
+    flex-direction: column; /* Cambia a diseño vertical */
+    align-items: center;
+  }
 
-#username:invalid,
-#email:invalid,
-#password:invalid,
-#password_confirm:invalid {
-	border-color: #F44336;
-}
+  .svg-container {
+    padding-bottom: 1rem;
+  }
 
-#username:valid,
-#email:valid,
-#password:valid,
-#password_confirm:valid {
-	border-color: #4CAF50;
-}
-
-#password_confirm {
-	margin-bottom: 40px;
+  .svg-container img {
+    max-width: 100%;
+    max-height: 15rem; /* Reducir tamaño en pantallas pequeñas */
+  }
 }
