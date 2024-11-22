@@ -4,15 +4,16 @@
 
 /* Colores */
 :root {
-  --color-fondo: #0e0e0e;
-  --color-borde: #fcba03;
-  --color-texto: #ffffff;
+  --color-fondo: #4365A5; /* Azul marino */
+  --color-borde: #fcfcfc;
+  --color-texto: ##3B4250;
   --color-placeholder: #b5b5b5;
   --color-boton: #fcba03;
   --color-boton-hover: #d6a002;
-  --color-boton-texto: #0e0e0e;
+  --color-boton-texto: #ffffff;
   --color-link: #fcba03;
   --color-link-hover: #d6a002;
+  --color-form-fondo: #ffffff; /* Fondo blanco del formulario */
 }
 
 /* Estilos generales */
@@ -26,60 +27,98 @@ body {
   font-family: 'Poppins', sans-serif;
   background-color: var(--color-fondo);
   color: var(--color-texto);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Contenedor del cuadro de login */
+/* Contenedor principal */
+.login-container {
+  background-color: var(--color-form-fondo);
+  border: 2px solid var(--color-borde);
+  border-radius: 1rem;
+  padding: 2rem;
+  max-width: 50rem;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Contenido del formulario y SVG */
+.login-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+/* Contenedor del SVG */
+/* Contenedor del SVG */
+.svg-container {
+  flex: 1; /* Espacio proporcional al formulario */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 2rem; /* Espacio adicional entre el SVG y el formulario */
+}
+
+.svg-container img {
+  max-width: 100%;
+  max-height: 30rem; /* Incrementar aún más el tamaño */
+  width: 25rem; /* Ancho fijo para garantizar que sea más grande */
+  height: auto;
+  object-fit: contain; /* Mantener proporciones */
+}
+
+/* Contenedor del formulario */
+.form-container {
+  flex: 1.5; /* Menor espacio que el SVG */
+  text-align: center;
 }
 
 h2 {
   font-weight: 600;
-  font-size: 2.5rem;
-  text-align: center;
-  margin: 1.5rem 0;
+  font-size: 2rem;
+  color: var(--color-texto);
+  margin-bottom: 1.5rem;
 }
 
-a {
-  color: var(--color-link);
-  text-decoration: none;
-  transition: color 0.2s ease-in-out;
-}
-
-a:hover {
-  color: var(--color-link-hover);
-}
-
-/* Estilos del formulario */
 form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-  padding: 2rem;
-  border: 2px solid var(--color-borde);
-  border-radius: 1rem;
-  max-width: 35rem;
+  align-items: center; /* Centrar los elementos del formulario */
 }
 
 label {
-  font-size: 1.25rem;
+  font-size: 1.5rem; /* Hacer las etiquetas más grandes para balancear el diseño */
   margin-bottom: 0.5rem;
+  color: var(--color-texto);
 }
 
 input[type='text'],
 input[type='password'] {
   background-color: transparent;
-  border: none;
-  border-bottom: 2px solid var(--color-borde);
+  border: 2px solid #a7a7a7; /* Borde negro */
+  border-radius: 1rem; /* Bordes redondeados */
   color: var(--color-texto);
   font-family: 'Roboto', sans-serif;
   font-size: 1.25rem;
   padding: 0.5rem;
   margin-bottom: 1.5rem;
-  width: 100%;
+  width: 80%; /* Reducir el ancho para que se vea más compacto */
+  text-align: center; /* Centrar texto ingresado */
 }
 
 input[type='text']:focus,
 input[type='password']:focus {
-  outline: none;
-  border-color: var(--color-boton);
+  outline: none; /* Eliminar el contorno del navegador */
+  border-color: var(--color-boton); /* Cambiar borde al color del botón en focus */
 }
 
 input[type='text']::placeholder,
@@ -87,6 +126,7 @@ input[type='password']::placeholder {
   color: var(--color-placeholder);
   font-family: 'Roboto', sans-serif;
   font-size: 1.25rem;
+  text-align: center; /* Centrar el texto del placeholder */
 }
 
 button[type='submit'] {
@@ -98,18 +138,36 @@ button[type='submit'] {
   font-family: 'Roboto', sans-serif;
   font-size: 1.25rem;
   font-weight: 500;
-  margin-top: 1.5rem;
+  margin: 0.5rem;
   padding: 0.75rem 1.5rem;
   transition: background-color 0.2s ease-in-out;
+  width: 80%; /* Botones del mismo ancho que los campos */
 }
 
 button[type='submit']:hover {
   background-color: var(--color-boton-hover);
 }
 
-/* Estilos para pantallas pequeñas */
+p {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: var(--color-texto);
+  text-align: center; /* Centrar texto del párrafo */
+}
+
+/* Responsividad para pantallas pequeñas */
 @media screen and (max-width: 600px) {
-  form {
-    max-width: none;
+  .login-content {
+    flex-direction: column; /* Cambiar a diseño vertical en pantallas pequeñas */
+    align-items: center;
+  }
+
+  .svg-container {
+    padding-bottom: 1rem;
+  }
+
+  .svg-container img {
+    max-width: 100%; /* Ajustar a pantallas pequeñas */
+    max-height: 15rem; /* Reducir tamaño en pantallas pequeñas */
   }
 }
